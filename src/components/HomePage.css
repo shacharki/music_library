@@ -1,0 +1,106 @@
+.btnsEdit{
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .modalAddTarck {
+    background: rgb(100, 100, 100);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    transform: translate(-50%, -50%);
+    gap: 20px;
+    border-radius: 7px;
+    @media (max-width: 600px) {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .styledDiv{
+    background-color: #535353;
+    margin: 1.5rem;
+  } 
+  .styledSong{
+    padding: 0.5rem;
+  }
+  .styledArtist{
+    color: grey;
+    text-align: left;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+  }
+  .styledTitle{
+    color: white;
+    text-align: left;
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  .styledDivGenre{
+    background-color: #363636;
+    padding: 0.5rem;
+  }
+  .styledHeader{
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    color: white;
+    background-color:  #535353;
+    margin-bottom: 2rem;
+    @media (max-width: 600px) {
+      font-size: 1.2rem;
+    }
+  }
+  .trackInput {
+    margin: 7, 0;
+    font-size: 1rem;
+    padding: 15px;
+  }
+  .formContainerPro {
+    background: rgb(100, 100, 100);
+    margin: 30px;
+    gap: 20px;
+    border-radius: 7px;
+  }
+  .formGroup {
+    margin-bottom: 2rem;
+  }
+  .btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  .btnsEdit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .editBtn{
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border-radius: 3px;
+  }
+  .closeTaskBtn {
+    cursor: pointer;
+    padding: 4.5px 8px 2.5px;
+    background-color: #00538b8f;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 1rem;
+    text-align: center;
+    &:hover {
+      background-color: #0850eb76;
+    }
+  }
+
+  
+
+  

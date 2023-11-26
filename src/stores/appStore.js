@@ -15,7 +15,6 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
-
 export async function getSongs() {
   var songsList = [];
   const songCol = collection(db, 'songs');
@@ -30,7 +29,6 @@ export async function getSongs() {
 }
 
 export async function addSong(title, artist, genre) {
-  console.log("11", title, artist, genre)
   const song = {
     title: title,
     artist: artist,
