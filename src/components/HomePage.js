@@ -107,7 +107,6 @@ class HomePage extends Component {
                 </div>
 
                 {!isLoading &&
-               
                 <div className="styledSongs">
                  {songs.map(song =>
                     <Box className="styledBox">
@@ -134,11 +133,10 @@ class HomePage extends Component {
                         <FormGroup className="formContainerPro" >
                             <div className="formGroup" style={{ display: 'flex', margin: '10px', padding: '10px' }}>
                                 <div className="formContainerPro" style={{ width: '50%' }}>
-                                    <FormControl className="trackInput">
+                                    <FormControl className="trackInput" >
                                         <InputLabel htmlFor="my-input">Song Title</InputLabel>
                                         <StyledInput
                                             fullWidth
-                                            standard
                                             id="my-input"
                                             aria-describedby="my-helper-text"
                                             value={this.state.title}
@@ -148,7 +146,7 @@ class HomePage extends Component {
                                             name="title"
                                         />
                                     </FormControl>
-                                    <FormControl className="trackInput">
+                                    <FormControl className="trackInput" style={{ marginTop: '2rem' }}>
                                         <InputLabel htmlFor="my-input">Artist Name</InputLabel>
                                         <StyledInput
                                             fullWidth
@@ -161,7 +159,7 @@ class HomePage extends Component {
                                             name="artist"
                                         />
                                     </FormControl>
-                                    <FormControl className="trackInput">
+                                    <FormControl className="trackInput" style={{ marginTop: '2rem' }}>
                                         <InputLabel htmlFor="my-input">Genre</InputLabel>
                                         <StyledInput
                                             fullWidth
