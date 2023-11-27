@@ -1,6 +1,6 @@
 import { Component } from "react"
 import { getSongs, addSong } from '../stores/appStore'
-import { FormControl, FormGroup, Input, InputLabel, CircularProgress, Button } from "@mui/material";
+import { FormControl, FormGroup,Box, Input, InputLabel, CircularProgress, Button } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import styled from "styled-components";
 import './HomePage.css'
@@ -20,21 +20,22 @@ let StyledFormControl = styled(FormControl)`
 
 let StyledButton = styled.button`
   background-color: #5a2cff;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: white;
   border: #5a2cff 1px solid;
   box-shadow: 0 0 1px 1px rgb(138, 137, 137);
-  margin-left: 5rem;
   padding: 1rem;
+  margin-right:2rem;
   border-radius: 1rem;
   font-weight: bold;
+  width: 10rem;
   @media (max-width: 600px) {
     width: 100%;
     height: 100%;
-    margin-left: -3rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     border-radius: 0rem;
     box-shadow: 0 0 0 0;
+    margin-right:0rem;
   }
   `;
 
@@ -54,8 +55,10 @@ class HomePage extends Component {
     async componentDidMount() {
         this.setState({ isLoading: true })
         const songsList = await getSongs()
-        this.setState({ songs: songsList });
-        this.setState({ isLoading: false })
+        this.setState({
+            songs: songsList,
+            isLoading: false
+        });
     }
 
     addTrack = async () => {
@@ -68,8 +71,13 @@ class HomePage extends Component {
             this.setState({ isLoading: true })
             await addSong(this.state.title, this.state.artist, this.state.genre)
             this.componentDidMount()
-            this.setState({ isLoading: false })
-            this.setState({ isOpenModal: false })
+            this.setState({
+                isLoading: false,
+                isOpenModal: false,
+                title: "",
+                artist: "",
+                genre: "",
+            })
 
 
         } catch (error) {
@@ -91,21 +99,28 @@ class HomePage extends Component {
         if (isLoading) return <div className="loading">Loading&#8230;</div>
         return (
             <StyledFormControl>
-                <div className="styledHeader">{"Mini Music Library Web Application"}
-                    <StyledButton onClick={this.handleClickModal}>ADD TRACK</StyledButton>
+                <div className="styledHeader">
+                    <div className="HeaderText">
+                        {"Mini Music Library Web Application"}
+                    </div>
+                    <StyledButton onClick={this.handleClickModal}>{"ADD TRACK"}</StyledButton>
                 </div>
 
-                {!isLoading && songs.map(song =>
-                    <div className="styledDiv">
+                {!isLoading &&
+               
+                <div className="styledSongs">
+                 {songs.map(song =>
+                    <Box className="styledBox">
                         <div className="styledSong">
                             <div className="styledTitle">{song.title}</div>
                             <div className="styledArtist">{song.artist}</div>
                         </div>
                         <div className="styledDivGenre">
-                            <div className="styledArtist">{song.genre}</div>
+                            <div className="styledArtist">{song.genre.toUpperCase()}</div>
                         </div>
-                    </div>
-                )}
+                    </Box>
+                )}</div>}
+                
 
                 <Modal
                     open={this.state.isOpenModal}
